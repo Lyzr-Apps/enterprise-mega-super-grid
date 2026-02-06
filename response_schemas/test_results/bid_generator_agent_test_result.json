@@ -1,0 +1,23 @@
+{
+  "agent_name": "Bid Generator Agent",
+  "agent_id": "6985a6533b50e9c8d7d7e939",
+  "test_message": "What is our company's data encryption policy for customer information?",
+  "expected_purpose": "Generate sourced RFP answers from Knowledge Vault",
+  "timestamp": "2026-02-06T08:31:00.945719",
+  "is_valid_json": true,
+  "validation_errors": [],
+  "actual_response": {
+    "status": "error",
+    "result": {
+      "answer": "The complete answer text in professional tone",
+      "status": "missing_info",
+      "citations": [],
+      "warning": "The requested information on the company's data encryption policy for customer information is not available in the Knowledge Vault."
+    },
+    "metadata": {
+      "agent_name": "Bid Generator Agent",
+      "timestamp": "2023-11-24T13:59:50.139863"
+    }
+  },
+  "raw_response": "{\n  \"status\": \"error\",\n  \"result\": {\n    \"answer\": \"The complete answer text in professional tone\",\n    \"status\": \"missing_info\",\n    \"citations\": [],\n    \"warning\": \"The requested information on the company's data encryption policy for customer information is not available in the Knowledge Vault.\"\n  },\n  \"metadata\": {\n    \"agent_name\": \"Bid Generator Agent\",\n    \"timestamp\": \"2023-11-24T13:59:50.139863\"\n  }\n}"
+}

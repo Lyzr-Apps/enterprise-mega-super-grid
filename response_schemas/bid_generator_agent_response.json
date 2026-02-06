@@ -1,0 +1,51 @@
+{
+  "agent_name": "Bid Generator Agent",
+  "agent_id": "6985a6533b50e9c8d7d7e939",
+  "agent_purpose": "bid_response_generator",
+  "description": "Generates professional RFP answers using verified Knowledge Vault content with source citations and missing information warnings",
+  "response_schema": {
+    "status": "string",
+    "result": {
+      "answer": "string",
+      "status": "string",
+      "citations": [
+        "any"
+      ],
+      "warning": "string"
+    },
+    "metadata": {
+      "agent_name": "string",
+      "timestamp": "string"
+    }
+  },
+  "example_response": {
+    "status": "error",
+    "result": {
+      "answer": "The complete answer text in professional tone",
+      "status": "missing_info",
+      "citations": [],
+      "warning": "The requested information on the company's data encryption policy for customer information is not available in the Knowledge Vault."
+    },
+    "metadata": {
+      "agent_name": "Bid Generator Agent",
+      "timestamp": "2023-11-24T13:59:50.139863"
+    }
+  },
+  "is_actual_tested": true,
+  "test_timestamp": "2026-02-06T08:31:00.946221",
+  "test_message_used": "Hello, provide a sample response",
+  "actual_test_response": {
+    "status": "error",
+    "result": {
+      "answer": "The complete answer text in professional tone",
+      "status": "missing_info",
+      "citations": [],
+      "warning": "The requested information on the company's data encryption policy for customer information is not available in the Knowledge Vault."
+    },
+    "metadata": {
+      "agent_name": "Bid Generator Agent",
+      "timestamp": "2023-11-24T13:59:50.139863"
+    }
+  },
+  "test_passed": true
+}

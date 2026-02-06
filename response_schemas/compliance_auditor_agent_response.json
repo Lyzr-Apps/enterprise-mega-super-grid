@@ -1,0 +1,101 @@
+{
+  "agent_name": "Compliance Auditor Agent",
+  "agent_id": "6985a66c3b50e9c8d7d7e93e",
+  "agent_purpose": "compliance_risk_auditor",
+  "description": "Analyzes draft text sentence-by-sentence against Knowledge Vault to identify compliance risks and calculate compliance scores",
+  "response_schema": {
+    "status": "string",
+    "result": {
+      "compliance_score": "number",
+      "total_sentences": "number",
+      "analysis": [
+        {
+          "sentence": "string",
+          "status": "string",
+          "risk_level": "string",
+          "explanation": "string",
+          "vault_reference": "string"
+        }
+      ],
+      "summary": "string"
+    },
+    "metadata": {
+      "agent_name": "string",
+      "timestamp": "string"
+    }
+  },
+  "example_response": {
+    "status": "success",
+    "result": {
+      "compliance_score": 25,
+      "total_sentences": 4,
+      "analysis": [
+        {
+          "sentence": "We encrypt all customer data using military-grade AES-256 encryption.",
+          "status": "UNKNOWN",
+          "risk_level": "warning",
+          "explanation": "The use of 'military-grade' could be misleading without verification from the Vault.",
+          "vault_reference": ""
+        },
+        {
+          "sentence": "Our servers are protected by advanced firewalls and we guarantee 100% uptime with zero data breaches ever.",
+          "status": "CONTRADICTION",
+          "risk_level": "danger",
+          "explanation": "Guaranteeing 100% uptime with zero data breaches is typically unverifiable and high risk.",
+          "vault_reference": ""
+        },
+        {
+          "sentence": "Customer information is stored on secure cloud platforms with daily backups.",
+          "status": "UNKNOWN",
+          "risk_level": "warning",
+          "explanation": "Storage on secure cloud platforms and daily backups need verification from the Vault.",
+          "vault_reference": ""
+        }
+      ],
+      "summary": "The draft contains high-risk claims that need verification from the Knowledge Vault, especially regarding claims of guarantees and military-grade encryption."
+    },
+    "metadata": {
+      "agent_name": "Compliance Auditor Agent",
+      "timestamp": "ISO timestamp"
+    }
+  },
+  "is_actual_tested": true,
+  "test_timestamp": "2026-02-06T08:31:17.953115",
+  "test_message_used": "Hello, provide a sample response",
+  "actual_test_response": {
+    "status": "success",
+    "result": {
+      "compliance_score": 25,
+      "total_sentences": 4,
+      "analysis": [
+        {
+          "sentence": "We encrypt all customer data using military-grade AES-256 encryption.",
+          "status": "UNKNOWN",
+          "risk_level": "warning",
+          "explanation": "The use of 'military-grade' could be misleading without verification from the Vault.",
+          "vault_reference": ""
+        },
+        {
+          "sentence": "Our servers are protected by advanced firewalls and we guarantee 100% uptime with zero data breaches ever.",
+          "status": "CONTRADICTION",
+          "risk_level": "danger",
+          "explanation": "Guaranteeing 100% uptime with zero data breaches is typically unverifiable and high risk.",
+          "vault_reference": ""
+        },
+        {
+          "sentence": "Customer information is stored on secure cloud platforms with daily backups.",
+          "status": "UNKNOWN",
+          "risk_level": "warning",
+          "explanation": "Storage on secure cloud platforms and daily backups need verification from the Vault.",
+          "vault_reference": ""
+        }
+      ],
+      "summary": "The draft contains high-risk claims that need verification from the Knowledge Vault, especially regarding claims of guarantees and military-grade encryption."
+    },
+    "metadata": {
+      "agent_name": "Compliance Auditor Agent",
+      "timestamp": "ISO timestamp"
+    }
+  },
+  "test_passed": true
+}

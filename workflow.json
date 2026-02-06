@@ -1,0 +1,68 @@
+{
+  "workflow_name": "BidWin AI Enterprise Knowledge & Governance Platform",
+  "workflow_pattern": "Multiple Independent Agents",
+  "nodes": [
+    {
+      "id": "input_node",
+      "type": "Input",
+      "label": "User Navigation (Tab Selection)",
+      "nodeCategory": "input"
+    },
+    {
+      "id": "bid_generator_agent",
+      "type": "Agent",
+      "label": "Bid Generator Agent",
+      "nodeCategory": "agent",
+      "agent_id": "6985a6533b50e9c8d7d7e939",
+      "agent_name": "Bid Generator Agent",
+      "has_knowledge_base": true,
+      "rag_id": "6985a64460cd1fd2d988d920"
+    },
+    {
+      "id": "compliance_auditor_agent",
+      "type": "Agent",
+      "label": "Compliance Auditor Agent",
+      "nodeCategory": "agent",
+      "agent_id": "6985a66c3b50e9c8d7d7e93e",
+      "agent_name": "Compliance Auditor Agent",
+      "has_knowledge_base": true,
+      "rag_id": "6985a64460cd1fd2d988d920"
+    },
+    {
+      "id": "generator_output",
+      "type": "Output",
+      "label": "Generated Answer with Citations",
+      "nodeCategory": "end"
+    },
+    {
+      "id": "auditor_output",
+      "type": "Output",
+      "label": "Compliance Audit Report",
+      "nodeCategory": "end"
+    }
+  ],
+  "edges": [
+    {
+      "source": "input_node",
+      "target": "bid_generator_agent"
+    },
+    {
+      "source": "input_node",
+      "target": "compliance_auditor_agent"
+    },
+    {
+      "source": "bid_generator_agent",
+      "target": "generator_output"
+    },
+    {
+      "source": "compliance_auditor_agent",
+      "target": "auditor_output"
+    }
+  ],
+  "knowledge_base": {
+    "name": "Knowledge Vault",
+    "rag_id": "6985a64460cd1fd2d988d920",
+    "rag_name": "knowledgevaultc7bl",
+    "description": "Enterprise knowledge base containing verified policies, security protocols, and approved messaging for RFP responses and compliance auditing"
+  }
+}

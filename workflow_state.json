@@ -1,0 +1,43 @@
+{
+  "workflow_name": "BidWin AI Enterprise Knowledge & Governance Platform",
+  "workflow_pattern": "Multiple Independent Agents",
+  "created_at": "2026-02-06",
+  "knowledge_base": {
+    "name": "Knowledge Vault",
+    "rag_id": "6985a64460cd1fd2d988d920",
+    "rag_name": "knowledgevaultc7bl",
+    "description": "Enterprise knowledge base containing verified policies, security protocols, and approved messaging for RFP responses and compliance auditing"
+  },
+  "agents": [
+    {
+      "agent_id": "6985a6533b50e9c8d7d7e939",
+      "name": "Bid Generator Agent",
+      "type": "Independent",
+      "description": "Searches Knowledge Vault for relevant content, generates balanced/professional responses using only verified context, returns 'Information Missing' warning when topic not covered, includes source citations",
+      "trigger": "Generate Answer on Generator Screen",
+      "provider": "OpenAI",
+      "model": "gpt-4o",
+      "temperature": 0.3,
+      "top_p": 1,
+      "has_knowledge_base": true,
+      "rag_id": "6985a64460cd1fd2d988d920",
+      "response_schema": "response_schemas/bid_generator_agent_response.json"
+    },
+    {
+      "agent_id": "6985a66c3b50e9c8d7d7e93e",
+      "name": "Compliance Auditor Agent",
+      "type": "Independent",
+      "description": "Analyzes draft text sentence-by-sentence against Knowledge Vault, classifies each as VERIFIED/UNKNOWN/CONTRADICTION, calculates compliance percentage score, flags risks appropriately",
+      "trigger": "Audit Draft on Auditor Screen",
+      "provider": "OpenAI",
+      "model": "gpt-4o",
+      "temperature": 0.2,
+      "top_p": 1,
+      "has_knowledge_base": true,
+      "rag_id": "6985a64460cd1fd2d988d920",
+      "response_schema": "response_schemas/compliance_auditor_agent_response.json"
+    }
+  ],
+  "workflow_file": "workflow.json",
+  "total_agents": 2
+}
